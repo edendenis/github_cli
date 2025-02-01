@@ -82,27 +82,27 @@ Para instalar o `GitHub CLI` no `Linux Ubuntu` pelo `Terminal Emulator`, você p
 
 2. **Adicione o repositório do GitHub CLI**: Execute o seguinte comando para adicionar o repositório oficial do GitHub CLI:
 
-```
-sudo apt-add-repository -y ppa:git-core/ppa
-```
+    ```
+    sudo apt-add-repository -y ppa:git-core/ppa
+    ```
 
 3. **Atualize a lista de pacotes**: Após adicionar o repositório, atualize a lista de pacotes com o comando:
 
-```
-sudo apt update
-```
+    ```
+    sudo apt update
+    ```
 
 4. **Instale o GitHub CLI**: Agora, você pode instalar o GitHub CLI usando o comando:
 
-```
-sudo apt install gh -y
-```
+    ```
+    sudo apt install gh -y
+    ```
 
 5. **Verifique a instalação**: Para garantir que o GitHub CLI foi instalado corretamente, você pode verificar a versão instalada com o comando:
 
-```
-gh --version
-```
+    ```
+    gh --version
+    ```
 
 Se tudo estiver correto, você verá a versão do GitHub CLI instalada em seu sistema. Agora você pode começar a usar o gh para interagir com seus repositórios do GitHub diretamente do terminal!
 
@@ -110,9 +110,9 @@ Se tudo estiver correto, você verá a versão do GitHub CLI instalada em seu si
 
 1. Digite o seguinte comando para iniciar o processo de autenticação:
 
-```
-gh auth login
-```
+    ```
+    gh auth login
+    ```
 
 2. **Escolha a Conta e o Protocolo**: Responda às perguntas que aparecem no `Terminal Emulator`:
 
@@ -120,38 +120,39 @@ gh auth login
 
     2.2 Protocolo preferido para operações Git: `Escolha SSH`.
 
-3. **Envie sua Chave Pública SSH**: O `Terminal Emulator` perguntará se você deseja enviar sua chave pública SSH para sua conta do GitHub. O caminho padrão geralmente é:
+3. **Envie sua Chave Pública SSH**: O `Terminal Emulator` perguntará se você deseja enviar sua chave pública SSH para sua conta do `GitHub`. O caminho padrão geralmente é:
 
-```
-/home/seu_usuario/.ssh/id_rsa.pub
-```
+    ```
+    /home/seu_usuario/.ssh/id_rsa.pub
+    ```
 
-4. **Autenticação com Navegador**:
+4. **Autenticação com navegador**:
 
-    4.1 O GitHub CLI solicitará como você deseja se autenticar. Selecione a opção para fazer login com um navegador.
+    4.1 O `GitHub CLI` solicitará como você deseja se autenticar. Selecione a opção para fazer _login_ com um navegador.
 
     4.2 Você verá um código de autenticação de uso único, por exemplo:
 
-    ``
+    ```
     First copy your one-time code: 4050-A33D
     ```
 
-5. **Abra o Navegador**: Pressione `Enter` para abrir o GitHub em seu navegador padrão. Você será redirecionado para uma página de autenticação.
+5. **Abra o navegador**: Pressione `Enter` para abrir o `GitHub` em seu navegador padrão. Você será redirecionado para uma página de autenticação.
 
-6. **Complete a Autenticação**:
+6. **Complete a autenticação**:
 
-    6.1 Cole o código que você copiou anteriormente na página do GitHub e conclua o processo de autenticação.
+    6.1 Cole o código que você copiou anteriormente na página do `GitHub` e conclua o processo de autenticação.
 
     6.2 Após autenticar, volte ao terminal e pressione Enter para continuar.
 
-7. Configure o Protocolo Git: O GitHub CLI deve configurar automaticamente o protocolo Git. Você verá uma mensagem de confirmação:
+7. Configure o Protocolo Git: O `GitHub CLI` deve configurar automaticamente o protocolo Git. Você verá uma mensagem de confirmação:
 
-```
-✓ Configured git protocol
-```
+    ```
+    ✓ Configured git protocol
+    ```
 
-8. **Erros Possíveis**: Se aparecer um erro como `HTTP 422: Validation Failed`, isso pode indicar que a chave SSH já está em uso. Nesse caso, verifique se a chave pública já está adicionada à sua conta do GitHub.
-Agora, você deve ter criado um repositório no GitHub e autenticado sua conta com sucesso usando o GitHub CLI! Se tiver alguma dúvida ou se algo não funcionar como esperado, sinta-se à vontade para perguntar.
+8. **Erros Possíveis**: Se aparecer um erro como `HTTP 422: Validation Failed`, isso pode indicar que a chave SSH já está em uso. Nesse caso, verifique se a chave pública já está adicionada à sua conta do `GitHub`.
+
+Agora, você deve ter criado um repositório no `GitHub` e autenticado sua conta com sucesso usando o `GitHub CLI`! Se tiver alguma dúvida ou se algo não funcionar como esperado, sinta-se à vontade para perguntar.
 
 
 ## 3 Criar repositório e enviar os arquivos e pastas
@@ -168,36 +169,38 @@ Agora, você deve ter criado um repositório no GitHub e autenticado sua conta c
 
 3. **Inicializa um novo repositório `Git` no diretório atual**: `git init`
 
-4. **Criar o repositório**: Com o `GitHub CLI`, você pode criar um novo repositório usando: `gh repo create <nome-do-repositorio> --public`
+4. **Criar o repositório**: Com o `GitHub CLI`, você pode criar um novo repositório usando: `gh repo create <nome-do-repositorio> --private`
 
     Substitua `<nome-do-repositorio>` pelo nome que você deseja e use `--public` ou `--private` para definir a visibilidade do repositório.
 
 5. **Verificar as _branches_ locais**: Primeiro, verifique quais _branches_ existem no seu repositório local usando o comando `git branch`: `git branch`
 
-    Isso lista todas as _branches_ locais. Certifique-se de que a `branch` `"main"` exista. Se não existir ou se não existir nenhuma, você pode criá-la a partir da `branch` atual ou mudar para ela usando: `git branch -M main`
+    Isso lista todas as _branches_ locais.
+    
+6. Certifique-se de que a `branch` `"main"` exista. Se não existir ou se não existir nenhuma, você pode criá-la a partir da `branch` atual ou mudar para ela usando: `git branch -M main`
 
     Isso cria uma nova `branch` `"main"` baseada na `branch` atual.
 
-5. **Atualizar a URL do Repositório Remoto**: Certifique-se de que a URL do seu repositório remoto esteja configurada para usar SSH:
-
-```
-git remote set-url origin git@github.com:edendenis/latex_iae_technical_report_template.git
-```
-
-
-6. **Adicionar um novo repositório remoto chamado `origin` ao seu repositório `Git` local**: O `origin` é o nome padrão usado para referir-se ao repositório remoto principal: `git add .`
-
-7. **Fazer um `commit`**: Após criar a `branch` `"main"`, você precisa fazer pelo menos um `commit` nela. Adicione arquivos, faça o `commit` e forneça uma mensagem de `commit`:
+7. **Atualizar a URL do Repositório Remoto**: Certifique-se de que a URL do seu repositório remoto esteja configurada para usar SSH:
 
     ```
+    git remote set-url add origin git@github.com:edendenis/<nome-do-repositorio>.git
+    ```
+
+8. **Adicionar um novo repositório remoto chamado `origin` ao seu repositório `Git` local**: O `origin` é o nome padrão usado para referir-se ao repositório remoto principal: `git add .`
+
+9. **Fazer um `commit`**: Após criar a `branch` `"main"`, você precisa fazer pelo menos um `commit` nela. Adicione arquivos, faça o `commit` e forneça uma mensagem de `commit`:
+
+    ```
+    git add .
     git commit -m "first commit within branch main"
     ```
 
-8. **Enviar seu repositório local para o `GitHub`**: Finalmente, envie seu repositório para o `GitHub`:
+10. **Enviar seu repositório local para o `GitHub`**: Finalmente, envie seu repositório para o `GitHub`:
 
-```
-git push -u origin main
-```
+    ```
+    git push -u origin main
+    ```
 
 Esses comandos permitem que você crie um repositório no `GitHub` e o gerencie completamente a partir da linha de comando.
 
@@ -281,7 +284,7 @@ Não se esqueça de dar uma estrela ao projeto! Obrigado novamente!
 
 ## Referências
 
-[1] OPENAI. ***Instalação do GitHub CLI.*** Disponível em: <https://chatgpt.com/c/67042c07-816c-8002-8913-7c8cdbc167a9> (texto adaptado). ChatGPT. Acessado em: 07/10/2024 15:49.
+[1] OPENAI. ***Instalação do github cli.*** Disponível em: <https://chatgpt.com/c/67042c07-816c-8002-8913-7c8cdbc167a9> (texto adaptado). ChatGPT. Acessado em: 07/10/2024 15:49.
 
 [2] OPENAI. ***Vs code: editor popular:*** Disponível em: <https://chat.openai.com/c/b640a25d-f8e3-4922-8a3b-ed74a2657e42> (texto adaptado). ChatGPT. Acessado em: 07/10/2024 15:49.
 
